@@ -20,13 +20,19 @@ class UserTypeSeeder extends Seeder
         $user_types = 
         [
             [
-                "name" => "Admin"
+                "name" => "Admin",
+                "created_at" => date("Y-m-d H:i:s"),
+                "updated_at" => date("Y-m-d H:i:s"),
             ], 
             [
-                "name" => "Sales Rep"
+                "name" => "Sales Rep",
+                "created_at" => date("Y-m-d H:i:s"),
+                "updated_at" => date("Y-m-d H:i:s"),
             ], 
             [
-                "name" => "Warehouse Rep"
+                "name" => "Warehouse Rep",
+                "created_at" => date("Y-m-d H:i:s"),
+                "updated_at" => date("Y-m-d H:i:s"),
             ]       
         ];
 
