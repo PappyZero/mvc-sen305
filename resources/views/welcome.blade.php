@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="text-size">
-                    <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">PAPPY INVENTORY MANAGEMENT SYSTEM</h2>
+                    <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">PAPPYS INVENTORY MANAGEMENT SYSTEM</h2>
                 </div>
 
                 <!-- <div class="mt-16">
