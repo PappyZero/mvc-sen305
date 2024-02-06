@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use App\Models\Units;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,8 +38,12 @@ class ProductController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $code = rand(000000, 999999);
+
         $product = new Products();
         $product->name = $request->input('name');
+        $product->code = $code;
+
         // Assign other fields if applicable
 
         $product->save();
@@ -99,5 +104,32 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect('view_product')->with('success', 'Product deleted successfully');
+    }
+
+    public function productReceive($id)
+    {
+        // DD($id);
+        $product = Products::where('id', $id) -> first();
+
+
+        $units = Units::all();
+
+        // dd($units);
+        return view("warehouse.product_receive", ["product"=>$product, "units"=>$units]);
+    }
+
+    public function searchProduct()
+    {
+        // return view('warehouse.search_product');
+        $searchs = [];
+        return view('warehouse.search_product', ['searchs' => $searchs]);
+    }
+    public function searchProductResult(Request $request)
+    {
+        // dd($request['name']);
+        $searchs = [];
+        $searchs = Products::where('code', '%like%', '%' . $request['name'] . '%')->orWhere('name', 'like', '%' . $request['name'] . '%')->get();
+        // dd($search);
+        return view('warehouse.search_product', ['searchs' => $searchs]);
     }
 }

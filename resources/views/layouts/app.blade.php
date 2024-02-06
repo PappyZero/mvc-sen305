@@ -50,7 +50,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Sale Product</a>
+                                    <a class="nav-link" href="#">Receive Product</a>
                                 </li>
                             @endif
                             @if (Auth::user()->user_type == 2)
@@ -66,7 +66,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a id="navbarDropdown" class="nav-link">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('warehouse.search_product') }}">
                                         Receive Product
                                     </a>
                                 </li>

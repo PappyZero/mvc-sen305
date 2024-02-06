@@ -41,6 +41,9 @@ Route::get('/delete_customer/{id}', [CustomerController::class, 'destroy'])->nam
 
 Route::get('/manager/home', [ManagerController::class, 'index'])->name('manager.home');
 Route::get('/warehouse/home', [WarehouseController::class, 'index'])->name('warehouse.home');
+Route::get('/warehouse/search_product', [ProductController::class, 'searchProduct'])->name('warehouse.search_product');
+Route::post('/warehouse/search_product', [ProductController::class, 'searchProductResult'])->name('warehouse.search_product');
+Route::get('/warehouse/product_receive/{id}', [ProductController::class, 'productReceive'])->name('warehouse.product_receive');
 
 Route::get('/add_product', [ProductController::class, 'index'])->name('add_product');
 Route::post('/insert_product', [ProductController::class, 'store'])->name('insert_product');
@@ -61,3 +64,4 @@ Route::get('/edit_supplier/{id}', [SupplierController::class, 'edit'])->name('ed
 Route::post('/update_supplier/{id}', [SupplierController::class, 'update'])->name('update_supplier');
 Route::get('/delete_supplier/{id}', [SupplierController::class, 'destroy'])->name('delete_supplier');
 
+Route::post('/register_user', [UserController::class, 'store'])->name('register_user');

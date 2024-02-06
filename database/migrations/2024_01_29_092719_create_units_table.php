@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_ware_houses', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
-            $table->integer('unit');
-            $table->integer('qty');
-            $table->double('price', 10, 2);
-            $table->dateTime('expiry_date');
-            $table->boolean('status')->default(1);
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_ware_houses');
+        Schema::dropIfExists('units');
     }
 };
